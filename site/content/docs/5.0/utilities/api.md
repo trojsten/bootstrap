@@ -17,6 +17,7 @@ The `$utilities` map contains all utilities and is later merged with your custom
 - `class` _(optional)_: Variable to change the class name if you don't want it to be the same as the property. In case you don't provide the `class` key and `property` key is an array of strings, the class name will be the first element of the `property` array.
 - `values`: This can be a list of values or a map if you don't want the class name to be the same as the value. If null is used as map key, it isn't rendered.
 - `print` _(optional)_: Boolean indicating if print classes need to be generated. `false` by default.
+- `rtl` _(optional)_: Boolean indicating if utility should be kept in RTL. `true` by default.
 
 
 ## Adding utilities to the utility API
@@ -281,6 +282,34 @@ Output:
   }
 }
 ```
+
+## Dropping utility in RTL
+
+Some edge cases make [RTL styling difficult](https://rtlstyling.com/posts/rtl-styling#common-things-that-might-not-work-for-rtl), such as line breaks in Arabic. Thus utilities can be dropped from RTL output by setting the `rtl` option to `false`:
+
+```scss
+$utilities: (
+  "word-wrap": (
+    property: word-wrap word-break,
+    class: text,
+    values: (break: break-word),
+    rtl: false
+  ),
+);
+```
+
+Output:
+
+```css
+/* rtl:begin:remove */
+.text-break {
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+/* rtl:end:remove */
+```
+
+This doesn't output anything in RTL, thanks to [the RTLCSS `remove` control directive](https://rtlcss.com/learn/usage-guide/control-directives/#remove).
 
 ## Removing utilities
 
