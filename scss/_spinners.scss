@@ -2,9 +2,12 @@
 // Rotating border
 //
 
+/* rtl:begin:ignore */
 @keyframes spinner-border {
   to { transform: rotate(360deg); }
 }
+
+/* rtl:end:ignore */
 
 .spinner-border {
   display: inline-block;
