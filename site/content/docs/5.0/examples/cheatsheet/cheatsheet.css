@@ -10,17 +10,20 @@ body {
 /* Table of contents */
 .bd-aside a {
   padding: .125rem 1rem;
-  margin-left: -1rem;
   color: inherit;
-}
-
-[dir="rtl"] .bd-aside a {
-  margin-right: -1rem;
-  margin-left: auto;
 }
 
 .bd-aside a:not(:hover) {
   text-decoration: none;
+}
+
+.bd-aside a:not(:only-child) {
+  margin-left: -1rem;
+}
+
+[dir="rtl"] .bd-aside a:not(:only-child) {
+  margin-right: -1rem;
+  margin-left: auto;
 }
 
 .bd-aside a:not(:only-child)::before {
@@ -101,8 +104,8 @@ body {
   }
 
   /**
- * 1. Too bad only Firefox supports subgrids ATM
- */
+   * 1. Too bad only Firefox supports subgrids ATM
+   */
   .bd-cheatsheet,
   .bd-cheatsheet section,
   .bd-cheatsheet article {
@@ -142,7 +145,10 @@ body {
   .bd-cheatsheet article,
   .bd-cheatsheet article > h3 {
     top: 12rem;
-    z-index: 0;
     scroll-margin-top: 12rem;
+  }
+
+  .bd-cheatsheet article > h3 {
+    z-index: 1;
   }
 }
