@@ -180,6 +180,8 @@ const getjQuery = () => {
   return null
 }
 
+const isRTL = (document.documentElement.dir === 'rtl')
+
 export {
   getjQuery,
   TRANSITION_END,
@@ -194,5 +196,6 @@ export {
   isVisible,
   findShadowRoot,
   noop,
-  reflow
+  reflow,
+  isRTL
 }

@@ -349,6 +349,11 @@ Button dropdowns work with buttons of all sizes, including default and split dro
 
 ## Directions
 
+{{< callout info >}}
+#### RTL
+Directions are mirrored when using Bootstrap in RTL, meaning `.dropleft` will appear on the right side.
+{{< /callout >}}
+
 ### Dropup
 
 Trigger dropdown menus above elements by adding `.dropup` to the parent element.
@@ -584,7 +589,7 @@ Add `.disabled` to items in the dropdown to **style them as disabled**.
 
 ## Menu alignment
 
-By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add `.dropdown-menu-right` to a `.dropdown-menu` to right align the dropdown menu.
+By default, a dropdown menu is automatically positioned 100% from the top and along the left side of its parent. Add `.dropdown-menu-right` to a `.dropdown-menu` to right align the dropdown menu. Directions are mirrored when using Bootstrap in RTL, meaning `.dropdown-menu-right` will appear on the left side.
 
 {{< callout info >}}
 **Heads up!** Dropdowns are positioned thanks to Popper.js (except when they are contained in a navbar).
