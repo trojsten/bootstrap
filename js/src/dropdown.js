@@ -53,9 +53,9 @@ const EVENT_KEYUP_DATA_API = `keyup${EVENT_KEY}${DATA_API_KEY}`
 const CLASS_NAME_DISABLED = 'disabled'
 const CLASS_NAME_SHOW = 'show'
 const CLASS_NAME_DROPUP = 'dropup'
-const CLASS_NAME_DROPRIGHT = 'dropright'
-const CLASS_NAME_DROPLEFT = 'dropleft'
-const CLASS_NAME_MENURIGHT = 'dropdown-menu-right'
+const CLASS_NAME_DROPRIGHT = 'dropend'
+const CLASS_NAME_DROPLEFT = 'dropstart'
+const CLASS_NAME_MENURIGHT = 'dropdown-menu-end'
 const CLASS_NAME_NAVBAR = 'navbar'
 const CLASS_NAME_POSITION_STATIC = 'position-static'
 

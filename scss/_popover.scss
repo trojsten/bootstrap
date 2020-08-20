@@ -57,7 +57,7 @@
   }
 }
 
-.bs-popover-right {
+.bs-popover-end {
   margin-left: $popover-arrow-height;
 
   > .popover-arrow {
@@ -112,7 +112,7 @@
   }
 }
 
-.bs-popover-left {
+.bs-popover-start {
   margin-right: $popover-arrow-height;
 
   > .popover-arrow {
@@ -140,13 +140,13 @@
     @extend .bs-popover-top;
   }
   &[x-placement^="right"] {
-    @extend .bs-popover-right;
+    @extend .bs-popover-end;
   }
   &[x-placement^="bottom"] {
     @extend .bs-popover-bottom;
   }
   &[x-placement^="left"] {
-    @extend .bs-popover-left;
+    @extend .bs-popover-start;
   }
 }
 

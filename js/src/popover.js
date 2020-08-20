@@ -119,6 +119,17 @@ class Popover extends Tooltip {
   // Private
 
   _addAttachmentClass(attachment) {
+    switch (attachment) {
+      case 'right':
+        attachment = 'end'
+        break
+      case 'left':
+        attachment = 'start'
+        break
+      default:
+        break
+    }
+
     this.getTipElement().classList.add(`${CLASS_PREFIX}-${attachment}`)
   }
 

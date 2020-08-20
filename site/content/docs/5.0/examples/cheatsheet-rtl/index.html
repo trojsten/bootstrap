@@ -974,11 +974,11 @@ direction: rtl
 
         {{< example show_markup="false" >}}
         <div class="btn-group w-100 align-items-center justify-content-between flex-wrap">
-          <div class="dropright">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="droprightMenuButton" data-toggle="dropdown" aria-expanded="false">
-              زر Dropright
+          <div class="dropend">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropendMenuButton" data-toggle="dropdown" aria-expanded="false">
+              زر Dropend
             </button>
-            <ul class="dropdown-menu" aria-labelledby="droprightMenuButton">
+            <ul class="dropdown-menu" aria-labelledby="dropendMenuButton">
               <li><h6 class="dropdown-header">رأس القائمة المنسدلة</h6></li>
               <li><a class="dropdown-item" href="#">عمل</a></li>
               <li><a class="dropdown-item" href="#">عمل آخر</a></li>
@@ -1000,11 +1000,11 @@ direction: rtl
               <li><a class="dropdown-item" href="#">رابط منفصل</a></li>
             </ul>
           </div>
-          <div class="dropleft">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropleftMenuButton" data-toggle="dropdown" aria-expanded="false">
-              زر Dropleft
+          <div class="dropstart">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropstartMenuButton" data-toggle="dropdown" aria-expanded="false">
+              زر Dropstart
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropleftMenuButton">
+            <ul class="dropdown-menu" aria-labelledby="dropstartMenuButton">
               <li><h6 class="dropdown-header">رأس القائمة المنسدلة</h6></li>
               <li><a class="dropdown-item" href="#">عمل</a></li>
               <li><a class="dropdown-item" href="#">عمل آخر</a></li>
@@ -1020,9 +1020,9 @@ direction: rtl
         <div class="btn-group">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownRightMenuButton" data-toggle="dropdown" aria-expanded="false">
-              قائمة بمحاذاة اليمين
+              قائمة بمحاذاة النهاية
             </button>
-            <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownRightMenuButton">
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownRightMenuButton">
               <li><h6 class="dropdown-header">رأس القائمة المنسدلة</h6></li>
               <li><a class="dropdown-item" href="#">عمل</a></li>
               <li><a class="dropdown-item" href="#">عمل آخر</a></li>
@@ -1294,13 +1294,13 @@ direction: rtl
           انبثاق في الأعلى
         </button>
         <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="يرتبط لفرنسا ذلك تم, ان إعلان أدوات إنطلاق.">
-          انبثاق على اليمين
+          popover في النهاية
         </button>
         <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="يرتبط لفرنسا ذلك تم, ان إعلان أدوات إنطلاق.">
           انبثاق في الأسفل
         </button>
         <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="left" data-content="يرتبط لفرنسا ذلك تم, ان إعلان أدوات إنطلاق.">
-          انبثاق على اليسار
+          popover عند البدء
         </button>
         {{< /example >}}
       </div>
@@ -1428,9 +1428,9 @@ direction: rtl
       <div>
         {{< example show_markup="false" class="tooltip-demo" >}}
         <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="تلميح في الأعلى">تلميح في الأعلى</button>
-        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="تلميح على اليمين">تلميح على اليمين</button>
+        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="تلميح في النهاية">تلميح في النهاية</button>
         <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="تلميح في الأسفل">تلميح في الأسفل</button>
-        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="تلميح على اليسار">تلميح على اليسار</button>
+        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="تلميح عند البدء">تلميح عند البدء</button>
         <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-html="true" title="<em>تلميح</em> <u>مع</u> <b>HTML</b>">تلميح مع HTML</button>
         {{< /example >}}
       </div>
