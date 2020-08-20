@@ -46,7 +46,7 @@ describe('Toast', () => {
     it('should close toast when close element with data-dismiss attribute is set', done => {
       fixtureEl.innerHTML = [
         '<div class="toast" data-delay="1" data-autohide="false" data-animation="false">',
-        '  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">',
+        '  <button type="button" class="ms-2 mb-1 close" data-dismiss="toast">',
         '    close',
         '  </button>',
         '</div>'
@@ -80,7 +80,7 @@ describe('Toast', () => {
 
       fixtureEl.innerHTML = [
         '<div class="toast" data-autohide="false" data-animation="false">',
-        '  <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">',
+        '  <button type="button" class="ms-2 mb-1 close" data-dismiss="toast">',
         '    close',
         '  </button>',
         '</div>'
