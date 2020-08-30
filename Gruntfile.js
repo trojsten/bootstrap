@@ -41,10 +41,10 @@ module.exports = function (grunt) {
     // Metadata.
     pkg: grunt.file.readJSON('package.json'),
     banner: '/*!\n' +
-            ' * Bootstrap v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under the <%= pkg.license %> license\n' +
-            ' */\n',
+      ' * Bootstrap v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+      ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+      ' * Licensed under the <%= pkg.license %> license\n' +
+      ' */\n',
     jqueryCheck: configBridge.config.jqueryCheck.join('\n'),
     jqueryVersionCheck: configBridge.config.jqueryVersionCheck.join('\n'),
 
@@ -153,37 +153,46 @@ module.exports = function (grunt) {
         sourceMap: true,
         outputSourceFiles: true
       },
-      core: {
+      compileKSP: {
         options: {
           sourceMapURL: '<%= pkg.name %>.css.map',
           sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
         },
-        src: 'less/bootstrap.less',
-        dest: 'dist/css/<%= pkg.name %>.css'
+        src: 'less/ksp.less',
+        dest: 'dist/css/ksp/<%= pkg.name %>.css'
       },
-      theme: {
+      compileFKS: {
         options: {
-          sourceMapURL: '<%= pkg.name %>-theme.css.map',
-          sourceMapFilename: 'dist/css/<%= pkg.name %>-theme.css.map'
+          sourceMapURL: '<%= pkg.name %>.css.map',
+          sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
         },
-        src: 'less/theme.less',
-        dest: 'dist/css/<%= pkg.name %>-theme.css'
+        src: 'less/fks.less',
+        dest: 'dist/css/fks/<%= pkg.name %>.css'
       },
-      docs: {
+      compileTrojsten: {
         options: {
-          sourceMapURL: 'docs.css.map',
-          sourceMapFilename: 'docs/assets/css/docs.css.map'
+          sourceMapURL: '<%= pkg.name %>.css.map',
+          sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
         },
-        src: 'docs/assets/less/docs.less',
-        dest: 'docs/assets/css/docs.css'
+        src: 'less/trojsten.less',
+        dest: 'dist/css/trojsten/<%= pkg.name %>.css'
       },
-      docsIe: {
+      compileKMS: {
         options: {
-          sourceMap: false
+          sourceMapURL: '<%= pkg.name %>.css.map',
+          sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
         },
-        src: 'docs/assets/less/ie10-viewport-bug-workaround.less',
-        dest: 'docs/assets/css/ie10-viewport-bug-workaround.css'
-      }
+        src: 'less/kms.less',
+        dest: 'dist/css/kms/<%= pkg.name %>.css'
+      },
+      compileSUSI: {
+        options: {
+          sourceMapURL: '<%= pkg.name %>.css.map',
+          sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
+        },
+        src: 'less/susi.less',
+        dest: 'dist/css/susi/<%= pkg.name %>.css'
+      },
     },
 
     postcss: {
@@ -196,11 +205,20 @@ module.exports = function (grunt) {
           require('autoprefixer')(configBridge.config.autoprefixer)
         ]
       },
-      core: {
-        src: 'dist/css/<%= pkg.name %>.css'
+      fks: {
+        src: 'dist/css/fks/<%= pkg.name %>.css'
       },
-      theme: {
-        src: 'dist/css/<%= pkg.name %>-theme.css'
+      ksp: {
+        src: 'dist/css/ksp/<%= pkg.name %>.css'
+      },
+      trojsten: {
+        src: 'dist/css/trojsten/<%= pkg.name %>.css'
+      },
+      kms: {
+        src: 'dist/css/kms/<%= pkg.name %>.css'
+      },
+      susi: {
+        src: 'dist/css/susi/<%= pkg.name %>.css'
       },
       docs: {
         src: 'docs/assets/css/docs.css'
@@ -243,13 +261,25 @@ module.exports = function (grunt) {
           }
         }
       },
-      core: {
-        src: 'dist/css/<%= pkg.name %>.css',
-        dest: 'dist/css/<%= pkg.name %>.min.css'
+      minifyKSP: {
+        src: 'dist/css/ksp/<%= pkg.name %>.css',
+        dest: 'dist/css/ksp/<%= pkg.name %>.min.css'
       },
-      theme: {
-        src: 'dist/css/<%= pkg.name %>-theme.css',
-        dest: 'dist/css/<%= pkg.name %>-theme.min.css'
+      minifyFKS: {
+        src: 'dist/css/fks/<%= pkg.name %>.css',
+        dest: 'dist/css/fks/<%= pkg.name %>.min.css'
+      },
+      minifyTrojsten: {
+        src: 'dist/css/trojsten/<%= pkg.name %>.css',
+        dest: 'dist/css/trojsten/<%= pkg.name %>.min.css'
+      },
+      minifyKMS: {
+        src: 'dist/css/kms/<%= pkg.name %>.css',
+        dest: 'dist/css/kms/<%= pkg.name %>.min.css'
+      },
+      minifySUSI: {
+        src: 'dist/css/susi/<%= pkg.name %>.css',
+        dest: 'dist/css/susi/<%= pkg.name %>.min.css'
       },
       docs: {
         src: 'docs/assets/css/docs.css',
@@ -269,7 +299,49 @@ module.exports = function (grunt) {
         src: [
           '**/*'
         ],
-        dest: 'docs/dist/'
+        dest: 'docs/dist'
+      },
+      js: {
+        expand: true,
+        cwd: 'dist/js/',
+        src: '**',
+        dest: '../../trojsten/static/js/'
+      },
+      font: {
+        expand: true,
+        cwd: 'dist/fonts/',
+        src: '**',
+        dest: '../../trojsten/static/fonts/'
+      },
+      ksp: {
+        expand: true,
+        cwd: 'dist/css/ksp/',
+        src: '**',
+        dest: '../../trojsten/static/css/ksp/'
+      },
+      fks: {
+        expand: true,
+        cwd: 'dist/css/fks/',
+        src: '**',
+        dest: '../../trojsten/static/css/fks/'
+      },
+      kms: {
+        expand: true,
+        cwd: 'dist/css/kms/',
+        src: '**',
+        dest: '../../trojsten/static/css/kms/'
+      },
+      susi: {
+        expand: true,
+        cwd: 'dist/css/susi/',
+        src: '**',
+        dest: '../../trojsten/static/css/susi/'
+      },
+      trojsten: {
+        expand: true,
+        cwd: 'dist/css/trojsten/',
+        src: '**',
+        dest: '../../trojsten/static/css/trojsten/'
       }
     },
 
@@ -373,16 +445,16 @@ module.exports = function (grunt) {
   }
   // Skip HTML validation if running a different subset of the test suite
   if (runSubset('validate-html') &&
-      // Skip HTML5 validator on Travis when [skip validator] is in the commit message
-      isUndefOrNonZero(process.env.TWBS_DO_VALIDATOR)) {
+    // Skip HTML5 validator on Travis when [skip validator] is in the commit message
+    isUndefOrNonZero(process.env.TWBS_DO_VALIDATOR)) {
     testSubtasks.push('validate-html');
   }
   // Only run BrowserStack tests if there's a BrowserStack access key
   if (typeof process.env.BROWSER_STACK_USERNAME !== 'undefined' &&
-      // Skip BrowserStack if running a different subset of the test suite
-      runSubset('browserstack') &&
-      // Skip BrowserStack on Travis when [skip browserstack] is in the commit message
-      isUndefOrNonZero(process.env.TWBS_DO_BROWSERSTACK)) {
+    // Skip BrowserStack if running a different subset of the test suite
+    runSubset('browserstack') &&
+    // Skip BrowserStack on Travis when [skip browserstack] is in the commit message
+    isUndefOrNonZero(process.env.TWBS_DO_BROWSERSTACK)) {
     testSubtasks.push('exec:browserstack');
   }
 
@@ -393,10 +465,22 @@ module.exports = function (grunt) {
   grunt.registerTask('dist-js', ['concat', 'uglify:core', 'commonjs']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['less:core', 'less:theme', 'postcss:core', 'postcss:theme', 'cssmin:core', 'cssmin:theme']);
+  grunt.registerTask('less-compile', ['less:compileFKS', 'less:compileKSP', 'less:compileTrojsten', 'less:compileKMS', 'less:compileSUSI']);
+  grunt.registerTask('dist-css', ['less-compile', 'postcss:ksp', 'postcss:fks', 'postcss:trojsten', 'postcss:kms', 'postcss:susi', 'cssmin:minifyKSP', 'cssmin:minifyFKS', 'cssmin:minifyTrojsten', 'cssmin:minifyKMS', 'cssmin:minifySUSI']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean:dist', 'dist-css', 'copy:fonts', 'dist-js']);
+  grunt.registerTask('dist', ['clean:dist',
+    'dist-css',
+    'copy:fonts',
+    'dist-js',
+    'copy:js',
+    'copy:font',
+    'copy:fks',
+    'copy:ksp',
+    'copy:kms',
+    'copy:susi',
+    'copy:trojsten'
+  ]);
 
   // Default task.
   grunt.registerTask('default', ['clean:dist', 'copy:fonts', 'test']);
